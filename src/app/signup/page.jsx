@@ -48,28 +48,35 @@ export default function SignUp() {
     });
 
     setLoading(false);
+    // SweetAlert কনফিগারেশন পরিবর্তন:
 
-    if (error) {
-      Swal.fire({
-        background: "#ffffff", // ✅ White Popup
-        icon: "error",
-        title: "Sign Up Failed",
-        text: error.message || "Email already exists.",
-        confirmButtonColor: "#2563eb",
-        customClass: { popup: 'rounded-xl' }
-      });
-    } else {
-      Swal.fire({
-        background: "#ffffff", // ✅ White Popup
-        icon: "success",
-        title: "Account Created!",
-        text: "Please login now.",
-        confirmButtonColor: "#2563eb",
-        customClass: { popup: 'rounded-xl' }
-      }).then(() => router.push("/login"));
-    }
-  };
+if (error) {
+  Swal.fire({
+    background: "linear-gradient(135deg, #1e3a8a 0%, #0891b2 100%)", // ✅ Blue Gradient
+    color: "#ffffff",
+    icon: "error",
+    iconColor: "#fca5a5",
+    title: "Sign Up Failed",
+    text: error.message || "Email already exists.",
+    confirmButtonColor: "#2563eb",
+    customClass: { popup: 'rounded-xl' }
+  });
+} else {
+  Swal.fire({
+    background: "linear-gradient(135deg, #1e3a8a 0%, #0891b2 100%)", // ✅ Blue Gradient
+    color: "#ffffff",
+    icon: "success",
+    iconColor: "#86efac",
+    title: "Account Created!",
+    text: "Please login now.",
+    confirmButtonColor: "#2563eb",
+    customClass: { popup: 'rounded-xl' }
+  }).then(() => {
+    window.location.href = "/login";
+  });
+}
 
+};
   const handleGoogleSignUp = async () => {
     await authClient.signIn.social({
       provider: "google",
