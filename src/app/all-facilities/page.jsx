@@ -88,7 +88,7 @@ export default function AllFacilities() {
         {/* Header */}
         <div className="text-center mb-8">
           <h1 className="text-4xl font-bold text-blue-800 mb-2">
-             All Facilities
+            All Facilities
           </h1>
           <div className="w-32 h-1 bg-gradient-to-r from-blue-600 to-cyan-500 mx-auto rounded-full"></div>
         </div>
@@ -123,7 +123,8 @@ export default function AllFacilities() {
             facilities.map((facility) => (
               <div
                 key={facility._id}
-                className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 border-t-4 border-cyan-400 flex flex-col h-full"
+                onClick={() => router.push(`/facility/${facility._id}`)} // ✅ কার্ডে ক্লিক করলে ডিটেইলস পেজে যাবে
+                className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 border-t-4 border-cyan-400 flex flex-col h-full cursor-pointer" // ✅ cursor-pointer যোগ করা হলো
               >
                 {/* Image */}
                 <div className="relative h-48 overflow-hidden">
@@ -159,7 +160,10 @@ export default function AllFacilities() {
 
                   <div className="mt-auto pt-4 border-t border-gray-100">
                     <button
-                      onClick={() => handleBookNow(facility._id)}
+                      onClick={(e) => {
+                        e.stopPropagation(); // ✅ বাটনে ক্লিক করলে কার্ডের onClick ট্রিগার হবে না
+                        handleBookNow(facility._id);
+                      }}
                       className="w-full bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white font-bold py-3 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 flex items-center justify-center gap-2"
                     >
                       <FaCalendarCheck /> Book Now
