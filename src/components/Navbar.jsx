@@ -31,7 +31,7 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="bg-gradient-to-r from-sky-100 via-blue-100 to-cyan-50 shadow-md sticky top-0 z-50 border-b border-blue-100">
+    <nav className="bg-gradient-to-r from-sky-200 via-blue-100 to-cyan-100 shadow-md sticky top-0 z-50 border-b border-blue-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           
@@ -109,12 +109,20 @@ export default function Navbar() {
                 </div>
               </>
             ) : (
-              <Link
-                href="/login"
-                className="ml-4 bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white font-semibold px-6 py-2.5 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5"
-              >
-                Login
-              </Link>
+              <div className="flex items-center gap-3 ml-4">
+                <Link
+                  href="/signup"
+                  className="px-6 py-2.5 border-2 border-blue-600 text-blue-600 font-semibold rounded-lg hover:bg-blue-600 hover:text-white transition-all duration-300"
+                >
+                  Sign Up
+                </Link>
+                <Link
+                  href="/login"
+                  className="bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white font-semibold px-6 py-2.5 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5"
+                >
+                  Login
+                </Link>
+              </div>
             )}
           </div>
 
@@ -171,13 +179,22 @@ export default function Navbar() {
                   </button>
                 </>
               ) : (
-                <Link
-                  href="/login"
-                  className="mx-4 bg-gradient-to-r from-blue-600 to-cyan-600 text-white font-semibold px-6 py-2.5 rounded-lg text-center shadow-md"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  Login
-                </Link>
+                <div className="flex flex-col gap-3 px-4 mt-2">
+                  <Link
+                    href="/signup"
+                    className="w-full border-2 border-blue-600 text-blue-600 font-semibold px-6 py-2.5 rounded-lg text-center hover:bg-blue-600 hover:text-white transition"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Sign Up
+                  </Link>
+                  <Link
+                    href="/login"
+                    className="w-full bg-gradient-to-r from-blue-600 to-cyan-600 text-white font-semibold px-6 py-2.5 rounded-lg text-center shadow-md"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Login
+                  </Link>
+                </div>
               )}
             </div>
           </div>
