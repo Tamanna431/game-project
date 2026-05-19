@@ -1,10 +1,11 @@
+import BannerSection from "@/components/BannerSection";
 import Image from "next/image";
 
 export default function Home() {
   return (
     
     <>
-  <h2>heelo</h2>
+  <BannerSection/>
   
     </>
   );

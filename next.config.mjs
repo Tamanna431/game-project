@@ -1,7 +1,15 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  /* config options here */
-  reactCompiler: true,
+  experimental: {
+    reactCompiler: true,
+  },
+  images: {
+  remotePatterns: [
+    { protocol: 'https', hostname: 'upload.wikimedia.org', pathname: '/**' },
+    { protocol: 'https', hostname: 'cdn.pixabay.com', pathname: '/**' },
+    { protocol: 'https', hostname: 'images.unsplash.com', pathname: '/**' },
+  ],
+}
 };
 
 export default nextConfig;
